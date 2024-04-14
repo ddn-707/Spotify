@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0039582BCAE71700A2D0CB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0039572BCAE71700A2D0CB /* Extensions.swift */; };
 		AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */; };
 		AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */; };
 		AE394B122BC6EFCC00971964 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE394B112BC6EFCC00971964 /* Base */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE0039572BCAE71700A2D0CB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AE394B072BC6EFCC00971964 /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				AE394B132BC6EFCD00971964 /* Assets.xcassets */,
 				AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */,
 				AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */,
+				AE0039572BCAE71700A2D0CB /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */,
 				AE76D87D2BC970F8000A6CEB /* LibraryViewController.swift in Sources */,
 				AE76D8992BC973D7000A6CEB /* UserProfile.swift in Sources */,
+				AE0039582BCAE71700A2D0CB /* Extensions.swift in Sources */,
 				AE76D8892BC97285000A6CEB /* PlaylistViewController.swift in Sources */,
 				AE76D8972BC973C7000A6CEB /* Artist.swift in Sources */,
 				AE76D8772BC970AE000A6CEB /* HomeViewController.swift in Sources */,

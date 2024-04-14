@@ -6,24 +6,34 @@
 //
 
 import UIKit
+import WebKit
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, WKNavigationDelegate {
+    
+    private let webview: WKWebView  = {
+        let prefs = WKWebpagePreferences()
+        if #available(iOS 14.0, *) {
+            prefs.allowsContentJavaScript = true
+        }
+        let config = WKWebViewConfiguration()
+        config.defaultWebpagePreferences = prefs
+        let webView = WKWebView(frame: .zero, configuration: config)
+        return webView
+    }()
+    
+    public var completionHandle: ((Bool) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "Sign In"
+        view.backgroundColor = .systemBackground
+        webview.navigationDelegate = self
+        view.addSubview(webview)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webview.frame = view.bounds
     }
-    */
 
 }
