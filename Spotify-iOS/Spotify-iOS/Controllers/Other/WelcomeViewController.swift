@@ -20,7 +20,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Spotify"
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemGreen
         view.addSubview(signInButton)
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
