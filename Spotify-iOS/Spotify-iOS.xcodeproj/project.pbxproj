@@ -31,6 +31,7 @@
 		AE76D8952BC973B5000A6CEB /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8942BC973B5000A6CEB /* AudioTrack.swift */; };
 		AE76D8972BC973C7000A6CEB /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8962BC973C7000A6CEB /* Artist.swift */; };
 		AE76D8992BC973D7000A6CEB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8982BC973D7000A6CEB /* UserProfile.swift */; };
+		AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		AE76D8942BC973B5000A6CEB /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		AE76D8962BC973C7000A6CEB /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		AE76D8982BC973D7000A6CEB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				AE76D8942BC973B5000A6CEB /* AudioTrack.swift */,
 				AE76D8962BC973C7000A6CEB /* Artist.swift */,
 				AE76D8982BC973D7000A6CEB /* UserProfile.swift */,
+				AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				AE76D8792BC970CC000A6CEB /* TabBarViewController.swift in Sources */,
 				AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */,
 				AE76D8912BC97346000A6CEB /* HapticsManager.swift in Sources */,
+				AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */,
 				AE76D8952BC973B5000A6CEB /* AudioTrack.swift in Sources */,
 				AE76D87F2BC9710C000A6CEB /* AuthViewController.swift in Sources */,
 				AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */,
