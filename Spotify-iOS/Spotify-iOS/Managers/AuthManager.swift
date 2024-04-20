@@ -10,6 +10,8 @@ import Foundation
 final class AuthManager {
     static let shared = AuthManager()
     
+    private var refreshingToken = false
+    
     struct Constants {
         static let clientID = "397ee46be88a48bbbbf2a533b8041b9b"
         static let clientSecret = "b48cca0da1344a6fa85678db5932e2be"
@@ -104,14 +106,33 @@ final class AuthManager {
         task.resume()
     }
     
-    //        public func refreshToken(){
-    //
-    //        }
+    private var onRefreshBlock = [((String) -> Void)]()
+    
+    public func withValidToken(completion: @escaping (String) -> Void){
+        guard !refreshingToken else {
+            //append the completion
+            onRefreshBlock.append(completion)
+            return
+        }
+        
+        if shouldRefreshToken {
+            //refresh token
+            refreshIfNeed { [weak self] success in
+                if let token = self?.accessToken, success {
+                    completion(token)
+                }
+            }
+        } else if let token = accessToken {
+            completion(token)
+        }
+            
+    }
+    
     public func refreshIfNeed(completion: @escaping (Bool) -> Void) {
-        //        guard shouldRefreshToken else {
-        //            completion(false)
-        //            return
-        //        }
+        guard shouldRefreshToken else {
+            completion(true)
+            return
+        }
         
         guard let refreshToken = self.refreshToken else  {
             return
@@ -121,6 +142,8 @@ final class AuthManager {
         guard let url = URL(string: Constants.tokenAPIURL) else {
             return
         }
+        
+        refreshingToken = true
         
         var components = URLComponents()
         components.queryItems = [
@@ -145,6 +168,7 @@ final class AuthManager {
         request.httpBody = components.query?.data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
+            self?.refreshingToken = false
             guard let data = data, error == nil else {
                 completion(false)
                 return
