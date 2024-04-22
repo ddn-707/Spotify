@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE0039582BCAE71700A2D0CB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0039572BCAE71700A2D0CB /* Extensions.swift */; };
+		AE152A852BD6A7170002F8A0 /* SettingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE152A842BD6A7170002F8A0 /* SettingModels.swift */; };
 		AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */; };
 		AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */; };
 		AE394B122BC6EFCC00971964 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE394B112BC6EFCC00971964 /* Base */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		AE0039572BCAE71700A2D0CB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AE152A842BD6A7170002F8A0 /* SettingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModels.swift; sourceTree = "<group>"; };
 		AE394B072BC6EFCC00971964 /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				AE76D8962BC973C7000A6CEB /* Artist.swift */,
 				AE76D8982BC973D7000A6CEB /* UserProfile.swift */,
 				AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */,
+				AE152A842BD6A7170002F8A0 /* SettingModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */,
 				AE76D8952BC973B5000A6CEB /* AudioTrack.swift in Sources */,
 				AE76D87F2BC9710C000A6CEB /* AuthViewController.swift in Sources */,
+				AE152A852BD6A7170002F8A0 /* SettingModels.swift in Sources */,
 				AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */,
 				AE76D87D2BC970F8000A6CEB /* LibraryViewController.swift in Sources */,
 				AE76D8992BC973D7000A6CEB /* UserProfile.swift in Sources */,
