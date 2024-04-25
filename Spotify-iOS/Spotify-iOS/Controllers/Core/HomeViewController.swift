@@ -13,8 +13,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Home"
+        fetchData()
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),style: .done, target: self, action: #selector(didTabSetting))
+    }
+    
+    private func fetchData (){
+        APICaller.shared.getNewReleases { result in
+            switch result {
+            case .success(let model):
+                break
+            case .failure(let error):
+                break
+            }
+        }
     }
     
     @objc func didTabSetting() {

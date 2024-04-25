@@ -44,6 +44,27 @@ class APICaller {
         
     }
     
+    public func getNewReleases (completion: @escaping((Result<String,Error>) -> Void)){
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=50"), type: .GET) { baseRequest in
+            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+                guard let data = data , error == nil else {
+                    completion(.failure(APIError.faileedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                    print("get new release success: \(result)")
+//                    completion(.success())
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
     //MARK: - private
     
     enum HTTPMethod: String {
