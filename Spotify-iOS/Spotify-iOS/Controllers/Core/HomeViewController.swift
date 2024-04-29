@@ -13,17 +13,29 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Home"
-        fetchData()
+        fetchNewReleaseData()
+        fetchFeaturePlaylistData()
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),style: .done, target: self, action: #selector(didTabSetting))
     }
     
-    private func fetchData (){
+    private func fetchNewReleaseData (){
         APICaller.shared.getNewReleases { result in
             switch result {
             case .success(let model):
                 break
             case .failure(let error):
+                break
+            }
+        }
+    }
+    
+    private func fetchFeaturePlaylistData() {
+        APICaller.shared.getFeaturePlaylist { result in
+            switch result {
+            case .success(let model):
+                break
+            case .failure(let model):
                 break
             }
         }

@@ -22,10 +22,10 @@ class APICaller {
     
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>) -> Void){
         
-        createRequest(with: URL(string: Constants.baseAPIURL + "/me"), type: .GET){ baseRequest in
-            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+        createRequest(with: URL(string: Constants.baseAPIURL + "/me"), type: .GET){ request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data ,error == nil else {
-                    completion(.failure(APIError.faileedToGetData))
+                    completion(.failure(APIError.faileedToGetData)) 
                     return
                 }
                 
@@ -44,18 +44,37 @@ class APICaller {
         
     }
     
-    public func getNewReleases (completion: @escaping((Result<String,Error>) -> Void)){
-        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=50"), type: .GET) { baseRequest in
-            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+    public func getNewReleases (completion: @escaping((Result<NewReleasesResponse,Error>) -> Void)){
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=50"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data , error == nil else {
                     completion(.failure(APIError.faileedToGetData))
                     return
                 }
                 
                 do {
-                    let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                    print("get new release success: \(result)")
-//                    completion(.success())
+                    let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
+    public func getFeaturePlaylist (completion: @escaping((Result<FeaturePlaylistReponse,Error>)-> Void)) {
+        createRequest(with: URL(string:  Constants.baseAPIURL + "/browse/featured-playlists?limit=10"), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data , error == nil else {
+                    completion(.failure(APIError.faileedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(FeaturePlaylistReponse.self, from: data)
+                    completion(.success(result))
                 } catch {
                     completion(.failure(error))
                 }
