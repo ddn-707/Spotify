@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA02857D96066D12F962DD72 /* Pods_Spotify_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A8CFEB9F2D9EA49F0F1B0D /* Pods_Spotify_iOS.framework */; };
 		AE0039582BCAE71700A2D0CB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0039572BCAE71700A2D0CB /* Extensions.swift */; };
+		AE06C9BF2BE3E06C00CD5922 /* RecommendedTrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE06C9BE2BE3E06C00CD5922 /* RecommendedTrackCollectionViewCell.swift */; };
+		AE06C9C12BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE06C9C02BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift */; };
+		AE06C9C32BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE06C9C22BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift */; };
+		AE06C9C52BE3E5AC00CD5922 /* NewReleaseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE06C9C42BE3E5AC00CD5922 /* NewReleaseCellViewModel.swift */; };
 		AE152A852BD6A7170002F8A0 /* SettingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE152A842BD6A7170002F8A0 /* SettingModels.swift */; };
 		AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */; };
 		AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B0C2BC6EFCC00971964 /* SceneDelegate.swift */; };
@@ -45,6 +49,10 @@
 		44A7211C4CDAABFB0E8268CF /* Pods-Spotify-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Spotify-iOS/Pods-Spotify-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		51A8CFEB9F2D9EA49F0F1B0D /* Pods_Spotify_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0039572BCAE71700A2D0CB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AE06C9BE2BE3E06C00CD5922 /* RecommendedTrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE06C9C02BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE06C9C22BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE06C9C42BE3E5AC00CD5922 /* NewReleaseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleaseCellViewModel.swift; sourceTree = "<group>"; };
 		AE152A842BD6A7170002F8A0 /* SettingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModels.swift; sourceTree = "<group>"; };
 		AE394B072BC6EFCC00971964 /* Spotify-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE394B0A2BC6EFCC00971964 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +108,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE06C9BD2BE3DFFB00CD5922 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				AE06C9BE2BE3E06C00CD5922 /* RecommendedTrackCollectionViewCell.swift */,
+				AE06C9C02BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift */,
+				AE06C9C22BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
 		AE394AFE2BC6EFCC00971964 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +163,7 @@
 		AE394B1F2BC6F01200971964 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AE06C9BD2BE3DFFB00CD5922 /* Browse */,
 				AE394B152BC6EFCD00971964 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -171,6 +190,7 @@
 		AE394B212BC6F02200971964 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AE06C9C42BE3E5AC00CD5922 /* NewReleaseCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -346,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE76D87B2BC970E0000A6CEB /* SearchViewController.swift in Sources */,
+				AE06C9C12BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift in Sources */,
 				AE76D8932BC973A0000A6CEB /* Playlist.swift in Sources */,
 				AE76D88D2BC9730D000A6CEB /* AuthManager.swift in Sources */,
 				AE76D8812BC9711F000A6CEB /* WelcomeViewController.swift in Sources */,
@@ -359,8 +380,10 @@
 				AED677662BE27F8A000770E6 /* RecommendationsResponse.swift in Sources */,
 				AEDD4ABB2BDFEA070087E09C /* NewReleasesResponse.swift in Sources */,
 				AE76D8952BC973B5000A6CEB /* AudioTrack.swift in Sources */,
+				AE06C9C52BE3E5AC00CD5922 /* NewReleaseCellViewModel.swift in Sources */,
 				AE76D87F2BC9710C000A6CEB /* AuthViewController.swift in Sources */,
 				AEDD4ABF2BDFF91B0087E09C /* FeaturePlaylistReponse.swift in Sources */,
+				AE06C9BF2BE3E06C00CD5922 /* RecommendedTrackCollectionViewCell.swift in Sources */,
 				AE152A852BD6A7170002F8A0 /* SettingModels.swift in Sources */,
 				AE394B0D2BC6EFCC00971964 /* SceneDelegate.swift in Sources */,
 				AE76D87D2BC970F8000A6CEB /* LibraryViewController.swift in Sources */,
@@ -369,6 +392,7 @@
 				AE76D8892BC97285000A6CEB /* PlaylistViewController.swift in Sources */,
 				AE76D8972BC973C7000A6CEB /* Artist.swift in Sources */,
 				AE76D8772BC970AE000A6CEB /* HomeViewController.swift in Sources */,
+				AE06C9C32BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift in Sources */,
 				AE76D8872BC97183000A6CEB /* PlayerViewController.swift in Sources */,
 				AE76D88B2BC9729A000A6CEB /* SearchResultViewController.swift in Sources */,
 				AE76D88F2BC9731F000A6CEB /* APICaller.swift in Sources */,
