@@ -15,15 +15,6 @@ struct PlaylistReponse: Codable {
     let items: [Playlist]
 }
 
-struct Playlist: Codable {
-    let description: String
-    let external_urls: [String: String]
-    let id: String
-    let name: String
-    let images: [APIImage]
-    let owner: User
-}
-
 struct User: Codable {
     let id: String
     let external_urls: [String: String]
