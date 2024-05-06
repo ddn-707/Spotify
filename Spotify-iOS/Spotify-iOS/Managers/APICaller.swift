@@ -95,7 +95,6 @@ class APICaller {
                 
                 do {
                     let result = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
-                    print(" get recommendation success \(result)")
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))
@@ -114,7 +113,6 @@ class APICaller {
                 }
                 do {
                     let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
-                    print(" get recommendation genre success \(result)")
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))
