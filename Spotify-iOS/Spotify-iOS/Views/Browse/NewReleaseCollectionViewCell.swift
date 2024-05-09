@@ -59,7 +59,7 @@ class NewReleaseCollectionViewCell: UICollectionViewCell {
         let albumLableSize = albumNameLabel.sizeThatFits(
             CGSize(
                 width: contentView.width - imageSize - 10,
-                height: contentView.height - 10
+                height: contentView.height - imageSize - 10
             )
         )
         let albumLableHeight = min(50, albumLableSize.height)
@@ -69,9 +69,9 @@ class NewReleaseCollectionViewCell: UICollectionViewCell {
         artistNameLabel.sizeToFit()
         numberOfTracksLabel.sizeToFit()
         
-        albumNameLabel.backgroundColor = .red
-        artistNameLabel.backgroundColor = .blue
-        numberOfTracksLabel.backgroundColor = .purple
+//        albumNameLabel.backgroundColor = .red
+//        artistNameLabel.backgroundColor = .blue
+//        numberOfTracksLabel.backgroundColor = .purple
         
         albumCoverImageView.frame = CGRect(x: 5, y: 5, width: imageSize, height: imageSize)
         albumNameLabel.frame = CGRect(

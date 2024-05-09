@@ -9,7 +9,7 @@ import UIKit
 
 enum BrowserSectionType {
     case newRelease(viewModels:[NewReleaseCellViewModel])
-    case featurePlaylist(viewModels: [NewReleaseCellViewModel])
+    case featurePlaylist(viewModels: [FeaturedPlaylistCellViewModel])
     case recommendTrack(viewModels: [NewReleaseCellViewModel])
 }
 
@@ -157,7 +157,15 @@ class HomeViewController: UIViewController {
         
         sections.append(
             .featurePlaylist(
-                viewModels: []
+                viewModels: playlists.compactMap(
+                    {
+                        FeaturedPlaylistCellViewModel(
+                            name: $0.name,
+                            artworkURL: URL(string: $0.images.first?.url ?? ""),
+                            creatorName: $0.owner.display_name
+                        )
+                    }
+                )
             )
         )
         sections.append(
@@ -194,6 +202,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return sections.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let type = sections[indexPath.section]
         switch type {
@@ -201,7 +210,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewReleaseCollectionViewCell.identifier, for: indexPath) as? NewReleaseCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .systemGreen
             let viewModel = viewModels[indexPath.row]
             cell.configure(with: viewModel)
             return cell
@@ -209,7 +217,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeaturePlaylistCollectionViewCell.identifier, for: indexPath) as? FeaturePlaylistCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .systemRed
+            let viewModel = viewModels[indexPath.row]
+            cell.configure(with: viewModel)
             return cell
         case .recommendTrack(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedTrackCollectionViewCell.identifier, for: indexPath) as? RecommendedTrackCollectionViewCell else {
@@ -236,7 +245,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .absolute(270)
+                    heightDimension: .absolute(390)
                 ),
                 subitem: item,
                 count: 3
@@ -244,7 +253,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let horizontalGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(0.95),
-                    heightDimension: .absolute(270)
+                    heightDimension: .absolute(390)
                 ),
                 subitem: verticalGroup,
                 count: 1
