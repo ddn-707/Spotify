@@ -128,9 +128,9 @@ final class AuthManager {
             
     }
     
-    public func refreshIfNeed(completion: @escaping (Bool) -> Void) {
+    public func refreshIfNeed(completion:((Bool) -> Void)?) {
         guard shouldRefreshToken else {
-            completion(true)
+            completion?(true)
             return
         }
         
@@ -156,7 +156,7 @@ final class AuthManager {
         let data = basicToken.data(using: .utf8)
         guard let base64String = data?.base64EncodedString() else {
             print("Failure get to base64")
-            completion(false)
+            completion?(false)
             return
         }
         
@@ -170,7 +170,7 @@ final class AuthManager {
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
             self?.refreshingToken = false
             guard let data = data, error == nil else {
-                completion(false)
+                completion?(false)
                 return
             }
             
@@ -178,12 +178,11 @@ final class AuthManager {
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self?.cacheToken(result)
-                print("Refresh token Successfully:\(result)")
-                completion(true)
+                completion?(true)
                 
             } catch {
                 print(error.localizedDescription)
-                completion(false)
+                completion?(false)
             }
         }
         
