@@ -148,8 +148,6 @@ class HomeViewController: UIViewController {
             let tracks = recommendation?.tracks else {
                 fatalError("Model are nil")
             }
-            
-            print("configuring ViewModels")
             self.configureModels(
                 newAlbums: newAlbum,
                 playlists: playlists,

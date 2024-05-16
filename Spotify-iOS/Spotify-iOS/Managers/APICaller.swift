@@ -103,7 +103,7 @@ class APICaller {
             task.resume()
         }
     }
-    
+    //MARK: - get Recommended Genres
     public func getRecommendedGenres(completion: @escaping ((Result<RecommendedGenresResponse,Error>) -> Void)){
         createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -121,6 +121,34 @@ class APICaller {
             task.resume()
         }
     }
+    
+    //MARK: - Get categories
+    
+    public func getCategories(completion:@escaping((Result<[Category],Error>)-> Void)){
+        let urlString = Constants.baseAPIURL + "/browse/categories?limt=50"
+        print(urlString)
+        createRequest(with: URL(string: urlString), type: .GET) {
+            request in
+            let task = URLSession.shared.dataTask(with: request) {
+                data, _, error in
+                guard let data = data , error == nil else {
+                    completion(.failure(APIError.faileedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
+//                    JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                    completion(.success(result.categories.items))
+                    print("get categories Success: \(result)")
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
     //MARK: - private
     
     enum HTTPMethod: String {
@@ -131,6 +159,7 @@ class APICaller {
     private func createRequest( with url: URL?, type: HTTPMethod, completion: @escaping(URLRequest) -> Void){
         
         AuthManager.shared.withValidToken { token in
+            NSLog(" access token \(token)")
             guard let apiURL = url else {
                 return
             }
@@ -141,7 +170,5 @@ class APICaller {
             request.timeoutInterval = 30
             completion(request)
         }
-        
-        
     }
 }

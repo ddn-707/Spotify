@@ -19,6 +19,8 @@
 		AE394B122BC6EFCC00971964 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE394B112BC6EFCC00971964 /* Base */; };
 		AE394B142BC6EFCD00971964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE394B132BC6EFCD00971964 /* Assets.xcassets */; };
 		AE394B172BC6EFCD00971964 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE394B162BC6EFCD00971964 /* Base */; };
+		AE3ACDAD2BF6500C005896F1 /* CategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3ACDAC2BF6500C005896F1 /* CategoriesResponse.swift */; };
+		AE3ACDAF2BF66627005896F1 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3ACDAE2BF66627005896F1 /* CategoryCollectionViewCell.swift */; };
 		AE76D8772BC970AE000A6CEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8762BC970AE000A6CEB /* HomeViewController.swift */; };
 		AE76D8792BC970CC000A6CEB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8782BC970CC000A6CEB /* TabBarViewController.swift */; };
 		AE76D87B2BC970E0000A6CEB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D87A2BC970E0000A6CEB /* SearchViewController.swift */; };
@@ -64,6 +66,8 @@
 		AE394B132BC6EFCD00971964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE394B162BC6EFCD00971964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE394B182BC6EFCD00971964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE3ACDAC2BF6500C005896F1 /* CategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponse.swift; sourceTree = "<group>"; };
+		AE3ACDAE2BF66627005896F1 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE76D8762BC970AE000A6CEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AE76D8782BC970CC000A6CEB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		AE76D87A2BC970E0000A6CEB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				AE06C9BD2BE3DFFB00CD5922 /* Browse */,
 				AE394B152BC6EFCD00971964 /* LaunchScreen.storyboard */,
 				AE823F822BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift */,
+				AE3ACDAE2BF66627005896F1 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				AEDD4ABE2BDFF91B0087E09C /* FeaturePlaylistReponse.swift */,
 				AEE67ED32BE1F596002360BD /* RecommendedGenresResponse.swift */,
 				AED677652BE27F8A000770E6 /* RecommendationsResponse.swift */,
+				AE3ACDAC2BF6500C005896F1 /* CategoriesResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				AE76D87B2BC970E0000A6CEB /* SearchViewController.swift in Sources */,
 				AE823F812BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift in Sources */,
 				AE06C9C12BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift in Sources */,
+				AE3ACDAF2BF66627005896F1 /* CategoryCollectionViewCell.swift in Sources */,
 				AE823F832BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift in Sources */,
 				AE76D8932BC973A0000A6CEB /* Playlist.swift in Sources */,
 				AE76D88D2BC9730D000A6CEB /* AuthManager.swift in Sources */,
@@ -386,6 +393,7 @@
 				AEE67ED42BE1F596002360BD /* RecommendedGenresResponse.swift in Sources */,
 				AEE8E5A22BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				AE76D8792BC970CC000A6CEB /* TabBarViewController.swift in Sources */,
+				AE3ACDAD2BF6500C005896F1 /* CategoriesResponse.swift in Sources */,
 				AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */,
 				AE76D8912BC97346000A6CEB /* HapticsManager.swift in Sources */,
 				AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */,
