@@ -71,8 +71,8 @@ class SearchViewController: UIViewController,UISearchResultsUpdating,UISearchBar
         //collectionView
         view.addSubview(collectionView)
         collectionView.register(
-            FeaturePlaylistCollectionViewCell.self,
-            forCellWithReuseIdentifier: FeaturePlaylistCollectionViewCell.identifier
+            CategoryCollectionViewCell.self,
+            forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier
         )
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -107,12 +107,19 @@ extension SearchViewController: UICollectionViewDelegate,UICollectionViewDataSou
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let category = categories[indexPath.row]
+        let viewModel = CategoryCollectionViewCellViewModel(
+            title: category.name,
+            artworkURL: URL(string: category.icons.first?.url ?? "")
+        )
+        cell.configure(with: viewModel)
+        return cell
     }
-    
-    
 }
