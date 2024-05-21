@@ -46,6 +46,8 @@
 		AE76D8992BC973D7000A6CEB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8982BC973D7000A6CEB /* UserProfile.swift */; };
 		AE823F812BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE823F802BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift */; };
 		AE823F832BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE823F822BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift */; };
+		AEBC89B02BFCD82300DC0CA4 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */; };
+		AEBC89B22BFCF90300DC0CA4 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */; };
 		AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */; };
 		AED677662BE27F8A000770E6 /* RecommendationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED677652BE27F8A000770E6 /* RecommendationsResponse.swift */; };
 		AEDD4ABB2BDFEA070087E09C /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD4ABA2BDFEA070087E09C /* NewReleasesResponse.swift */; };
@@ -98,6 +100,8 @@
 		AE76D8982BC973D7000A6CEB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AE823F802BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCellViewModel.swift; sourceTree = "<group>"; };
 		AE823F822BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		AED677652BE27F8A000770E6 /* RecommendationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponse.swift; sourceTree = "<group>"; };
 		AEDD4ABA2BDFEA070087E09C /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				AEE67ED32BE1F596002360BD /* RecommendedGenresResponse.swift */,
 				AED677652BE27F8A000770E6 /* RecommendationsResponse.swift */,
 				AE3ACDAC2BF6500C005896F1 /* CategoriesResponse.swift */,
+				AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */,
+				AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				AE06C9C12BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift in Sources */,
 				AE3ACDAF2BF66627005896F1 /* CategoryCollectionViewCell.swift in Sources */,
 				AE823F832BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift in Sources */,
+				AEBC89B22BFCF90300DC0CA4 /* SearchResultResponse.swift in Sources */,
 				AE76D8932BC973A0000A6CEB /* Playlist.swift in Sources */,
 				AE76D88D2BC9730D000A6CEB /* AuthManager.swift in Sources */,
 				AE76D8812BC9711F000A6CEB /* WelcomeViewController.swift in Sources */,
@@ -416,6 +423,7 @@
 				AEE67ED42BE1F596002360BD /* RecommendedGenresResponse.swift in Sources */,
 				AEE8E5A22BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				AE76D8792BC970CC000A6CEB /* TabBarViewController.swift in Sources */,
+				AEBC89B02BFCD82300DC0CA4 /* SearchResult.swift in Sources */,
 				AE3ACDAD2BF6500C005896F1 /* CategoriesResponse.swift in Sources */,
 				AE394B0B2BC6EFCC00971964 /* AppDelegate.swift in Sources */,
 				AE76D8912BC97346000A6CEB /* HapticsManager.swift in Sources */,

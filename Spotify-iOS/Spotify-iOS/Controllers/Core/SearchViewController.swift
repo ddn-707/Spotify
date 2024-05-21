@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelegate,UISearchControllerDelegate {
     
     private let searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: UIViewController())
+        let searchController = UISearchController(searchResultsController: SearchResultViewController())
         searchController.searchBar.placeholder = "Songs, Artists, Albums, Podcasts"
         searchController.searchBar.searchBarStyle = .minimal
         searchController.definesPresentationContext = true
@@ -96,10 +96,38 @@ class SearchViewController: UIViewController,UISearchResultsUpdating,UISearchBar
         collectionView.frame = view.bounds
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let resultControll = searchController.searchResultsController as? SearchResultViewController,
+              let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty
+        else {
+            return
+        }
+        
+        resultControll.delegate = self
+        APICaller.shared.search(with: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    resultControll.update(with: model)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         
     }
     
+}
+
+extension SearchViewController: SearchResultViewControllerDelegate {
+    func didTapResult(_ result: SearchResult) {
+        
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate,UICollectionViewDataSource {

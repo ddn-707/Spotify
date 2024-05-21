@@ -4203,7 +4203,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PromisesObjC";
 				IBSC_MODULE = FBLPromises;
 				INFOPLIST_FILE = "Target Support Files/PromisesObjC/ResourceBundle-FBLPromises_Privacy-PromisesObjC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = FBLPromises_Privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4220,7 +4220,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PromisesObjC";
 				IBSC_MODULE = FBLPromises;
 				INFOPLIST_FILE = "Target Support Files/PromisesObjC/ResourceBundle-FBLPromises_Privacy-PromisesObjC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = FBLPromises_Privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
