@@ -51,6 +51,7 @@ class SearchResultViewController: UIViewController {
     }
     
     func update(with results: [SearchResult]){
+        sections.removeAll()
         
         let artists = results.filter {
             switch $0 {
@@ -88,12 +89,19 @@ class SearchResultViewController: UIViewController {
             }
         }
         
-        self.sections = [
-            SearchSection(title: "Artists", results: artists),
-            SearchSection(title: "Albums", results: albums),
-            SearchSection(title: "Tracks", results: tracks),
-            SearchSection(title: "Playlists", results: playlists)
-        ]
+        if !artists.isEmpty {
+            self.sections.append(SearchSection(title: "Artists",results: artists))
+        }
+        if !albums.isEmpty {
+            self.sections.append(SearchSection(title: "Albums", results: albums))
+        }
+        if !albums.isEmpty {
+            self.sections.append(SearchSection(title: "Tracks", results: tracks))
+        }
+        if !albums.isEmpty {
+            self.sections.append(SearchSection(title: "Playlists", results: playlists))
+        }
+//        tableView.setContentOffset(.zero, animated: true)
         tableView.reloadData()
         tableView.isHidden = sections.isEmpty
     }

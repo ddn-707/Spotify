@@ -64,7 +64,7 @@ class SearchResultDefaultTableViewCell: UITableViewCell {
     
     func configure(with viewModel: SearchResultDefaultTableViewCellViewModel){
         label.text = viewModel.title
-        imageView?.sd_setImage(
+        iconImageView.sd_setImage(
             with: viewModel.imageURL,
             placeholderImage: UIImage(systemName: "person"),
             completed: nil
