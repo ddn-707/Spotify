@@ -19,7 +19,7 @@ protocol SearchResultViewControllerDelegate: AnyObject {
 class SearchResultViewController: UIViewController {
     private var sections: [SearchSection] = []
     
-    weak var delegate: SearchResultViewControllerDelegate? = nil
+    weak var delegate: SearchResultViewControllerDelegate?
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -182,5 +182,11 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let result = sections[indexPath.section].results[indexPath.row]
+        delegate?.didTapResult(result)
     }
 }

@@ -126,7 +126,7 @@ class SearchViewController: UIViewController,UISearchResultsUpdating,UISearchBar
 
 extension SearchViewController: SearchResultViewControllerDelegate {
     func didTapResult(_ result: SearchResult) {
-        
+        print("dungnd:\(result)")
     }
 }
 
@@ -149,5 +149,12 @@ extension SearchViewController: UICollectionViewDelegate,UICollectionViewDataSou
         )
         cell.configure(with: viewModel)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = CategoryViewController(category: categories[indexPath.row])
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -149,10 +149,36 @@ class APICaller {
         }
     }
     
+    //
+    public func getCategoryPlaylists(category: Category, completion: @escaping((Result<[Playlist],Error>)->Void)){
+        let stringUrl = Constants.baseAPIURL + "/browse/categories/\(category.id)/playlists?limit=50"
+        print("dungnd UrlString:\(stringUrl)")
+        createRequest(
+            with: URL(string: stringUrl),
+            type: .GET) { request in
+                let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    guard let data = data, error == nil else {
+                        completion(.failure(APIError.faileedToGetData))
+                        return
+                    }
+                    
+                    do {
+                        let result = try JSONDecoder().decode(
+                            PlaylistReponse.self,
+                            from: data
+                        )
+                        completion(.success(result.items))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                }
+                task.resume()
+            }
+    }
+    
     //MARK: - Search
     public func search (with query: String, completion:@escaping((Result<[SearchResult],Error>)->Void)){
         let stringURL = Constants.baseAPIURL + "/search?limit=15&type=album,artist,playlist,track&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        print("String url : \(stringURL)")
         createRequest(
             with: URL(string: stringURL),
             type: .GET) { request in
