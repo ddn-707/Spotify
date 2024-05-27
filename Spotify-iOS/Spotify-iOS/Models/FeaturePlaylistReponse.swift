@@ -10,6 +10,9 @@ import Foundation
 struct FeaturePlaylistReponse: Codable {
     let playlists: PlaylistReponse
 }
+struct CategoryPlaylistsResponse: Codable {
+    let playlists: PlaylistReponse
+}
 
 struct PlaylistReponse: Codable {
     let items: [Playlist]

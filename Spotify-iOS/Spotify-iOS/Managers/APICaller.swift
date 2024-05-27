@@ -152,7 +152,6 @@ class APICaller {
     //
     public func getCategoryPlaylists(category: Category, completion: @escaping((Result<[Playlist],Error>)->Void)){
         let stringUrl = Constants.baseAPIURL + "/browse/categories/\(category.id)/playlists?limit=50"
-        print("dungnd UrlString:\(stringUrl)")
         createRequest(
             with: URL(string: stringUrl),
             type: .GET) { request in
@@ -164,10 +163,10 @@ class APICaller {
                     
                     do {
                         let result = try JSONDecoder().decode(
-                            PlaylistReponse.self,
+                            CategoryPlaylistsResponse.self,
                             from: data
                         )
-                        completion(.success(result.items))
+                        completion(.success(result.playlists.items))
                     } catch {
                         completion(.failure(error))
                     }

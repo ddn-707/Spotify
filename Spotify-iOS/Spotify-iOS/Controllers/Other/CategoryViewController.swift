@@ -30,7 +30,7 @@ class CategoryViewController: UIViewController {
                 let group = NSCollectionLayoutGroup.horizontal(
                     layoutSize: NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1),
-                        heightDimension: .absolute(290)
+                        heightDimension: .absolute(250)
                     ),
                     subitem: item,
                     count: 2
@@ -62,22 +62,29 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         title = category.name
         view.addSubview(collectionView)
+        collectionView.register(
+            FeaturePlaylistCollectionViewCell.self,
+            forCellWithReuseIdentifier: FeaturePlaylistCollectionViewCell.identifier
+        )
         view.backgroundColor = .systemBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         
         APICaller.shared.getCategoryPlaylists(category: category) {[weak self] result in
-            switch result {
-            case .success(let result):
-                self?.playlists = result
-                self?.collectionView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
+            DispatchQueue.main.sync {
+                switch result {
+                case .success(let model):
+                    self?.playlists = model
+                    self?.collectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
     }
 }
 
@@ -87,11 +94,26 @@ extension CategoryViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO: Create UICollectionViewCell
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath) else{
-//            return UICollectionViewCell()
-//        }
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: FeaturePlaylistCollectionViewCell.identifier,
+            for: indexPath) as? FeaturePlaylistCollectionViewCell else{
+            return UICollectionViewCell()
+        }
+        let playlist = playlists[indexPath.row]
+        let viewModel = FeaturedPlaylistCellViewModel(
+            name: playlist.name,
+            artworkURL: URL(string: playlist.images.first?.url ?? ""),
+            creatorName: playlist.owner.display_name
+        )
+        cell.configure(with: viewModel)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = PlaylistViewController(playlist: playlists[indexPath.row])
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

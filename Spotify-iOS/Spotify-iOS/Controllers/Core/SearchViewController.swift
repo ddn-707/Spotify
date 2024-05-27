@@ -126,7 +126,6 @@ class SearchViewController: UIViewController,UISearchResultsUpdating,UISearchBar
 
 extension SearchViewController: SearchResultViewControllerDelegate {
     func didTapResult(_ result: SearchResult) {
-        print("dungnd:\(result)")
     }
 }
 
