@@ -54,6 +54,7 @@
 		AEDD4ABB2BDFEA070087E09C /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD4ABA2BDFEA070087E09C /* NewReleasesResponse.swift */; };
 		AEDD4ABD2BDFEC5F0087E09C /* APIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD4ABC2BDFEC5F0087E09C /* APIImage.swift */; };
 		AEDD4ABF2BDFF91B0087E09C /* FeaturePlaylistReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD4ABE2BDFF91B0087E09C /* FeaturePlaylistReponse.swift */; };
+		AEE481262C06211F00D1174C /* PlaylistDetailsReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE481252C06211F00D1174C /* PlaylistDetailsReponse.swift */; };
 		AEE67ED42BE1F596002360BD /* RecommendedGenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE67ED32BE1F596002360BD /* RecommendedGenresResponse.swift */; };
 		AEE8E5A22BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8E5A12BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		AEDD4ABA2BDFEA070087E09C /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
 		AEDD4ABC2BDFEC5F0087E09C /* APIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImage.swift; sourceTree = "<group>"; };
 		AEDD4ABE2BDFF91B0087E09C /* FeaturePlaylistReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePlaylistReponse.swift; sourceTree = "<group>"; };
+		AEE481252C06211F00D1174C /* PlaylistDetailsReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailsReponse.swift; sourceTree = "<group>"; };
 		AEE67ED32BE1F596002360BD /* RecommendedGenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenresResponse.swift; sourceTree = "<group>"; };
 		AEE8E5A12BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		D7B8D9F5B3C6AAB8BEDAA505 /* Pods-Spotify-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-iOS.release.xcconfig"; path = "Target Support Files/Pods-Spotify-iOS/Pods-Spotify-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				AE3ACDAC2BF6500C005896F1 /* CategoriesResponse.swift */,
 				AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */,
 				AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */,
+				AEE481252C06211F00D1174C /* PlaylistDetailsReponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				AE06C9C32BE3E13B00CD5922 /* FeaturePlaylistCollectionViewCell.swift in Sources */,
 				AE76D8872BC97183000A6CEB /* PlayerViewController.swift in Sources */,
 				AE76D88B2BC9729A000A6CEB /* SearchResultViewController.swift in Sources */,
+				AEE481262C06211F00D1174C /* PlaylistDetailsReponse.swift in Sources */,
 				AE76D88F2BC9731F000A6CEB /* APICaller.swift in Sources */,
 				AE76D8832BC97155000A6CEB /* SettingsViewController.swift in Sources */,
 			);

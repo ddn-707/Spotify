@@ -32,9 +32,7 @@ class APICaller {
                 do {
                     let result = try JSONDecoder().decode(UserProfile.self, from: data)
                     completion(.success(result))
-                    print(result)
                 } catch {
-                    print(error.localizedDescription)
                     completion(.failure(error))
                 }
             }
@@ -62,6 +60,30 @@ class APICaller {
             
             task.resume()
         }
+    }
+    
+    //MARK: - PLAYLIST
+    public func getPlaylistDetails(for playlist: Playlist, completion: @escaping(
+    Result<PlaylistDetailsReponse, Error>)-> Void){
+        let stringURL = Constants.baseAPIURL + "/playlists/" + playlist.id
+        print(stringURL)
+        createRequest(
+            with: URL(string: stringURL),
+            type: .GET) { request in
+                let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    guard let data = data , error == nil else {
+                        completion(.failure(APIError.faileedToGetData))
+                        return
+                    }
+                    do {
+                        let result = try JSONDecoder().decode(PlaylistDetailsReponse.self, from: data)
+                        completion(.success(result))
+                    }catch {
+                        completion(.failure(error))
+                    }
+                }
+                task.resume()
+            }
     }
     
     public func getFeaturePlaylist (completion: @escaping((Result<FeaturePlaylistReponse,Error>)-> Void)) {
@@ -126,7 +148,6 @@ class APICaller {
     
     public func getCategories(completion:@escaping((Result<[Category],Error>)-> Void)){
         let urlString = Constants.baseAPIURL + "/browse/categories?limt=50"
-        print(urlString)
         createRequest(with: URL(string: urlString), type: .GET) {
             request in
             let task = URLSession.shared.dataTask(with: request) {
@@ -140,7 +161,6 @@ class APICaller {
                     let result = try JSONDecoder().decode(CategoriesResponse.self, from: data)
                     //                    JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                     completion(.success(result.categories.items))
-                    print("get categories Success: \(result)")
                 } catch {
                     completion(.failure(error))
                 }
@@ -149,7 +169,7 @@ class APICaller {
         }
     }
     
-    //
+    //Get Category Playlists
     public func getCategoryPlaylists(category: Category, completion: @escaping((Result<[Playlist],Error>)->Void)){
         let stringUrl = Constants.baseAPIURL + "/browse/categories/\(category.id)/playlists?limit=50"
         createRequest(

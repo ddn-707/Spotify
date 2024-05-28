@@ -8,12 +8,12 @@
 import UIKit
 
 class PlaylistViewController: UIViewController {
-    //TODO: CONTINUE BUILD UI 
+    //TODO: CONTINUE BUILD UI
     private let playlist: Playlist
     
     public var isOwner = false
     
-    private let collection = UICollectionView(
+    private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewCompositionalLayout(
             sectionProvider: { _, _ -> NSCollectionLayoutSection in
@@ -63,8 +63,39 @@ class PlaylistViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var viewModels = [RecommendedTrackCellViewModel]()
+    private var tracks = [AudioTrack]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = playlist.name
+        view.backgroundColor = .systemBackground
+        view.addSubview(collectionView)
+        collectionView.register(
+            RecommendedTrackCollectionViewCell.self,
+            forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier
+        )
+//        collectionView.register(, forCellWithReuseIdentifier: <#T##String#>)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        APICaller.shared.getPlaylistDetails(for: playlist) { result in
+            switch result {
+            case .success(let model):
+                self.viewModels = model.tracks.items.compactMap({
+                    RecommendedTrackCellViewModel(
+                        name: $0.track.name,
+                        artistName: $0.track.artists.first?.name ?? "",
+                        artworkURL: URL()
+                    )
+                })
+                break
+            case .failure(let error):
+                break
+            }
+        }
+        
 //        fetchData()
         title = "Playlist"
         view.backgroundColor = .systemBackground
@@ -73,4 +104,27 @@ class PlaylistViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         
     }
+}
+
+extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RecommendedTrackCollectionViewCell.identifier,
+            for: indexPath
+        ) as? RecommendedTrackCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let viewModel = viewModels[indexPath.row]
+        cell.configure(with: viewModel)
+        return cell
+    }
+    
+    
 }
