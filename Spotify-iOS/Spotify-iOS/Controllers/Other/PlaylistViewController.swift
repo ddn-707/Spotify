@@ -80,19 +80,21 @@ class PlaylistViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        APICaller.shared.getPlaylistDetails(for: playlist) { result in
-            switch result {
-            case .success(let model):
-                self.viewModels = model.tracks.items.compactMap({
-                    RecommendedTrackCellViewModel(
-                        name: $0.track.name,
-                        artistName: $0.track.artists.first?.name ?? "",
-                        artworkURL: URL()
-                    )
-                })
-                break
-            case .failure(let error):
-                break
+        APICaller.shared.getPlaylistDetails(for: playlist) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    self?.viewModels = model.tracks.items.compactMap({
+                        RecommendedTrackCellViewModel(
+                            name: $0.track.name,
+                            artistName: $0.track.artists.first?.name ?? "",
+                            artworkURL: URL(string: $0.track.album.images.first?.url ?? "")
+                        )
+                    })
+                    self?.collectionView.reloadData()
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
         
@@ -102,6 +104,8 @@ class PlaylistViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
         
     }
 }
@@ -125,6 +129,5 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configure(with: viewModel)
         return cell
     }
-    
     
 }
