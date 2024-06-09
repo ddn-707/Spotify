@@ -63,6 +63,11 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         addSubview(descriptionLable)
         addSubview(ownerLabel)
         addSubview(playButton)
+        playButton.addTarget(
+            self,
+            action: #selector(didTapPlayAll),
+            for: .touchUpInside
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -70,14 +75,32 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     }
     //TODO: Handle button play
     @objc private func didTapPlayAll(){
-        
+        delegate?.PlaylistHeaderCollectionReusableViewDidTapPlayAll(self)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        let imageSize: CGFloat = height/2
+        imageView.frame = CGRect(
+            x: (width - imageSize)/2,
+            y: 20,
+            width: imageSize,
+            height: imageSize
+        )
+        nameLabel.frame = CGRect(x: 10,  y: imageView.bottom, width: width - 20, height: 44)
+        descriptionLable.frame =  CGRect( x: 10, y: nameLabel.bottom, width: width - 20, height: 44)
+        ownerLabel.frame = CGRect(x: 10, y: descriptionLable.bottom, width: width - 20, height: 44)
+        playButton.frame = CGRect(x: width - 80, y: width - 80, width: 60, height: 60)
     }
     
-    func configure(){
-        
+    func configure(with model: PlaylistHeaderViewModel){
+        nameLabel.text = model.name
+        descriptionLable.text = model.description
+        ownerLabel.text = model.ownerName
+        imageView.sd_setImage(
+            with: model.artworkURL,
+            placeholderImage: UIImage(systemName: "photo"),
+            completed: nil
+        )
     }
 }

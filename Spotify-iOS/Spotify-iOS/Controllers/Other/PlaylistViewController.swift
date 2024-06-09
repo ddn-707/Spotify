@@ -8,7 +8,6 @@
 import UIKit
 
 class PlaylistViewController: UIViewController {
-    //TODO: CONTINUE BUILD UI
     private let playlist: Playlist
     
     public var isOwner = false
@@ -75,7 +74,11 @@ class PlaylistViewController: UIViewController {
             RecommendedTrackCollectionViewCell.self,
             forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier
         )
-//        collectionView.register(, forCellWithReuseIdentifier: <#T##String#>)
+        collectionView.register(
+            PlaylistHeaderCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier
+        )
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -118,6 +121,25 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         return viewModels.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier,
+            for: indexPath
+        ) as? PlaylistHeaderCollectionReusableView , kind == kind else {
+            return UICollectionReusableView()
+        }
+        
+        let headerViewModel = PlaylistHeaderViewModel(
+            name: playlist.name,
+            ownerName: playlist.owner.display_name,
+            description: playlist.description,
+            artworkURL: URL(string: playlist.images.first?.url ?? "")
+        )
+        header.configure(with: headerViewModel)
+        header.delegate = self
+        return header
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: RecommendedTrackCollectionViewCell.identifier,
@@ -129,5 +151,12 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configure(with: viewModel)
         return cell
     }
+}
+
+extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
+    func PlaylistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
+        print("on press button")
+    }
+    
     
 }
