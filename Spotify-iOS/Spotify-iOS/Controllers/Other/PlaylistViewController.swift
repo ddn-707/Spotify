@@ -79,6 +79,7 @@ class PlaylistViewController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier
         )
+        
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -151,10 +152,16 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configure(with: viewModel)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let track = tracks[index]
+        PlaybackPresenter.shared.startPlayback(from: self, track: track			)
+    }
 }
 
 extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
     func PlaylistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
+        PlaybackPresenter.shared.startPlayback(from: self, tracks: tracks)
         print("on press button")
     }
     

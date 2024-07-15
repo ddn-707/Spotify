@@ -7,23 +7,31 @@
 
 import UIKit
 
+protocol PlayerViewControllerDelegate : AnyObject {
+    func didTapPlayPause()
+    func didTapForward()
+    func didTapBackward()
+    func didSlideSlider(_ value: Float)
+}
+
 class PlayerViewController: UIViewController {
+    
+    weak var dataSource: PlayerDataSource?
+    
+    weak var delegate: PlayerViewControllerDelegate?
+    
+    private let imageView: UIImageView = {
+       let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.backgroundColor = .systemGreen
+        return image
+    }()
+    
+//    private let controlView = 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -47,6 +47,7 @@
 		AE76D8992BC973D7000A6CEB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE76D8982BC973D7000A6CEB /* UserProfile.swift */; };
 		AE823F812BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE823F802BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift */; };
 		AE823F832BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE823F822BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift */; };
+		AEA7B9AC2C18877100C542AF /* PlaybackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7B9AB2C18877100C542AF /* PlaybackPresenter.swift */; };
 		AEBC89B02BFCD82300DC0CA4 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */; };
 		AEBC89B22BFCF90300DC0CA4 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */; };
 		AEBCA31D2BD177AE007FB60E /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */; };
@@ -60,6 +61,42 @@
 		AEE67ED42BE1F596002360BD /* RecommendedGenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE67ED32BE1F596002360BD /* RecommendedGenresResponse.swift */; };
 		AEE8E5A22BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8E5A12BED1435006D3DE3 /* FeaturedPlaylistCellViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		AEB2FDA22C344808003AF431 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		AEB2FDA32C34480A003AF431 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		AEB2FDA42C34480B003AF431 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		44A7211C4CDAABFB0E8268CF /* Pods-Spotify-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Spotify-iOS/Pods-Spotify-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +142,7 @@
 		AE76D8982BC973D7000A6CEB /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AE823F802BF3A52000E5E41F /* RecommendedTrackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCellViewModel.swift; sourceTree = "<group>"; };
 		AE823F822BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		AEA7B9AB2C18877100C542AF /* PlaybackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPresenter.swift; sourceTree = "<group>"; };
 		AEBC89AF2BFCD82300DC0CA4 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AEBC89B12BFCF90300DC0CA4 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		AEBCA31C2BD177AE007FB60E /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
@@ -180,6 +218,7 @@
 		AE394B092BC6EFCC00971964 /* Spotify-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AEA7B9AA2C18875D00C542AF /* Presenter */,
 				AE394B232BC6F03A00971964 /* Resources */,
 				AE394B222BC6F02B00971964 /* Managers */,
 				AE394B212BC6F02200971964 /* ViewModels */,
@@ -297,6 +336,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		AEA7B9AA2C18875D00C542AF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AEA7B9AB2C18877100C542AF /* PlaybackPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		DF056C13EED39397EE8BC8BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +367,9 @@
 				C740A1BB65C5187A894EC827 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				AEB2FDA42C34480B003AF431 /* PBXBuildRule */,
+				AEB2FDA32C34480A003AF431 /* PBXBuildRule */,
+				AEB2FDA22C344808003AF431 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -426,6 +476,7 @@
 				AE06C9C12BE3E0DB00CD5922 /* NewReleaseCollectionViewCell.swift in Sources */,
 				AE3ACDAF2BF66627005896F1 /* CategoryCollectionViewCell.swift in Sources */,
 				AE823F832BF3B3AB00E5E41F /* TitleHeaderCollectionReusableView.swift in Sources */,
+				AEA7B9AC2C18877100C542AF /* PlaybackPresenter.swift in Sources */,
 				AEBC89B22BFCF90300DC0CA4 /* SearchResultResponse.swift in Sources */,
 				AEBE3E5B2C0E10F7001E6D6D /* PlayListHeaderCollectionResuableView.swift in Sources */,
 				AE76D8932BC973A0000A6CEB /* Playlist.swift in Sources */,
